@@ -51,7 +51,6 @@ void f_fill(char **tab,t_location mapsize,int y,int x)
     f_fill(tab, mapsize, y, x + 1); 
 }
 
-
 void flood_fill(t_game *so_long)
 {
     t_location  chatr;

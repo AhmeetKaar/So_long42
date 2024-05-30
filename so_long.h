@@ -4,8 +4,6 @@
 # include "./libft/libft.h"
 # include "./minilibx/mlx.h"
 # include <fcntl.h>
-# include <stdio.h>
-# include <stdlib.h>
 
 typedef struct s_game
 {
@@ -22,6 +20,8 @@ typedef struct s_game
 	int		c_count;
 	int		e_count;
 	int		w_count;
+	int 	move_count;
+	int 	collected_count;
 	void	*mlx;
 	void	*mlx_win;
 	void	*exit;
@@ -58,5 +58,11 @@ int			ft_key(int keycode, t_game *so_long);
 void		ft_close(t_game *so_long);
 void		put_image(t_game *so_long, int x, int y);
 void		upload_image(t_game *so_long);
+void		ft_up(t_game *so_long);
+void		ft_left(t_game *so_long);
+void		ft_right(t_game *so_long);
+void		ft_down(t_game *so_long);
+void		errormessage2(t_game *solong, char c);
+void		errormessage(t_game *solong, char c);
 
 #endif

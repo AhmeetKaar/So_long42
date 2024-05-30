@@ -6,7 +6,7 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 19:52:37 by akar              #+#    #+#             */
-/*   Updated: 2024/05/25 17:23:48 by akar             ###   ########.fr       */
+/*   Updated: 2024/05/28 19:06:55 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,25 +110,25 @@ void wall_check(t_game *so_long,int x,int y)
 	invalid_char(so_long,x,y);
 }
 
-void mapsize_check(t_game *so_long, int i,int y)
+void mapsize_check(t_game *so_long, int i,int x)
 {
 	
 	i = 0;
-	y = strlen_newline(so_long->map[0]);
+	x = strlen_newline(so_long->map[0]);
 	
 	while (i < so_long->mapy)
 	{
-		if(y != strlen_newline(so_long->map[i]))
+		if(x != strlen_newline(so_long->map[i]))
 		{
 			ft_printf("Error: Map size.");
 			exit(1);
 		}
 		i++;
 	}
-	if(y > 40 || so_long->mapy > 22)
+	if(x > 40 || so_long->mapy > 22)
 	{
 		ft_printf("Error: The map is too big.");
 		exit(1);
 	}
-	wall_check(so_long,i,y);
+	wall_check(so_long,i,x);
 }

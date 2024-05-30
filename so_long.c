@@ -6,7 +6,7 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:54:58 by akar              #+#    #+#             */
-/*   Updated: 2024/05/25 17:21:27 by akar             ###   ########.fr       */
+/*   Updated: 2024/05/28 18:35:29 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char **get_map(t_game *so_long)
 	fd = open(so_long->mapname,O_RDONLY);
 	if(fd == -1)
 	{
-		ft_printf("Ber file couldn't be opened");
+		ft_printf("Error: File not open.");
 		free(str);
 		exit(1);
 	}

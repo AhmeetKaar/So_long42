@@ -6,7 +6,7 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 18:02:12 by akar              #+#    #+#             */
-/*   Updated: 2024/05/25 19:14:28 by akar             ###   ########.fr       */
+/*   Updated: 2024/05/28 19:16:09 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ void	upload_image(t_game *so_long)
 
 	so_long->exit = mlx_xpm_file_to_image(so_long->mlx, "textures/exit.xpm", &x,
 			&y);
-	so_long->player = mlx_xpm_file_to_image(so_long->mlx, "img/lightningmq.xpm",
+	so_long->player = mlx_xpm_file_to_image(so_long->mlx, "textures/lightningmq.xpm",
 			&x, &y);
 	so_long->collectable = mlx_xpm_file_to_image(so_long->mlx,
-			"img/collectable.xpm", &x, &y);
-	so_long->wall = mlx_xpm_file_to_image(so_long->mlx, "img/rock1.xpm", &x,
+			"textures/collectable.xpm", &x, &y);
+	so_long->wall = mlx_xpm_file_to_image(so_long->mlx, "textures/rock1.xpm", &x,
 			&y);
-	so_long->freespace = mlx_xpm_file_to_image(so_long->mlx, "img/road.xpm", &x,
+	so_long->freespace = mlx_xpm_file_to_image(so_long->mlx, "textures/road.xpm", &x,
 			&y);
 	if (!so_long->exit || !so_long->player || !so_long->collectable
 		|| !so_long->wall || !so_long->freespace)

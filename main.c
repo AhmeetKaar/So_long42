@@ -6,7 +6,7 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:31:15 by akar              #+#    #+#             */
-/*   Updated: 2024/05/25 19:15:55 by akar             ###   ########.fr       */
+/*   Updated: 2024/05/28 21:05:28 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,6 @@ void reset_value(t_game *so_long)
 	so_long->mlx = NULL;
 	so_long->mlx_win = NULL;
 }
-
-void	ft_close(t_game *so_long)
-{
-	ft_printf("Game closed.");
-	free_map(so_long, 1);
-	exit(1);
-}
-
 
 int strlen_newline(char *str)
 {
@@ -73,7 +65,7 @@ int	main(int ac, char **av)
 		ft_printf("Error: Number or name of arguments incorrect");
 		return(0);
 	}
-	so_long = malloc(sizeof(t_game) * 1);
+	so_long = malloc(sizeof(t_game));
 	reset_value(so_long);
 	so_long->mapname = av[1];
 	so_long->mapy = countline(av[1]);
