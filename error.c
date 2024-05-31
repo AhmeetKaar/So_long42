@@ -6,7 +6,7 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 19:13:11 by akar              #+#    #+#             */
-/*   Updated: 2024/05/28 19:13:34 by akar             ###   ########.fr       */
+/*   Updated: 2024/05/31 14:32:47 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	errormessage(t_game *solong, char c)
 void	errormessage2(t_game *solong, char c)
 {
 	if (c == 'c')
-	{
+	{	
 		free_map(solong, 1);
 		ft_printf("There's a component that shouldn't exist in map");
 	}

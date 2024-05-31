@@ -3,7 +3,7 @@
 
 # include "./libft/libft.h"
 # include "./minilibx/mlx.h"
-# include <fcntl.h>
+#include <fcntl.h>
 
 typedef struct s_game
 {
