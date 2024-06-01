@@ -6,7 +6,7 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 18:02:12 by akar              #+#    #+#             */
-/*   Updated: 2024/05/31 21:48:36 by akar             ###   ########.fr       */
+/*   Updated: 2024/06/01 20:19:26 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,27 @@ void	upload_image(t_game *so_long)
 	}
 }
 
+void	put_imag(t_game *so_long, int x, int y)
+{
+	mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,
+		so_long->freespace, x * 64, y * 64);
+	if (so_long->map[y][x] == '1')
+		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->wall, x
+			* 64, y * 64);
+	else if (so_long->map[y][x] == 'E')
+		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->exit, x
+			* 64, y * 64);
+	else if (so_long->map[y][x] == 'C')
+		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,
+			so_long->collectable, x * 64, y * 64);
+	else if (so_long->map[y][x] == 'P')
+		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->player,
+			x * 64, y * 64);
+	if(so_long->map[y][x] == 'E' && so_long->chrx == so_long->exitx && so_long->exity == so_long->chry)
+		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->player,
+			x * 64, y * 64);
+}
+
 void	put_image(t_game *so_long, int x, int y)
 {
 	y = 0;
@@ -61,22 +82,8 @@ void	put_image(t_game *so_long, int x, int y)
 	{
 		x = 0;
 		while (so_long->map[y][x])
-		{			
-			if (so_long->map[y][x] == '1')
-				mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,
-					so_long->wall, x * 64, y * 64);
-			else if (so_long->map[y][x] != '1')
-				mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,
-					so_long->freespace, x * 64, y * 64);
-			if (so_long->map[y][x] == 'C')
-				mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,
-					so_long->collectable, x * 64, y * 64);
-			if (so_long->map[y][x] == 'E')
-				mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,
-					so_long->exit, x * 64, y * 64);
-			if (so_long->map[y][x] == 'P')
-				mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,
-					so_long->player, x * 64, y * 64);			
+		{
+			put_imag(so_long, x, y);
 			x++;
 		}
 		y++;

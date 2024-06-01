@@ -4,7 +4,7 @@ LIBFTDIR = libft
 LIBFT = $(LIBFTDIR)/libft.a
 MLXDIR = minilibx
 MLX = $(MLXDIR)/libmlx.a
-SRCS = main.c flood_fill.c control_map.c window.c step.c error.c
+SRCS = main.c flood_fill.c control_map.c window.c step.c error.c so_long.c
 OBJS := $(SRCS:.c=.o)
 FLAGS = -Wall -Wextra -Werror
 FRAMEWORKS = -framework OpenGL -framework AppKit
@@ -14,7 +14,7 @@ all: $(NAME)
 $(NAME): $(OBJS) $(LIBFTDIR) 
 	make -C $(LIBFTDIR) 
 	make -C $(MLXDIR)
-	$(CC) $(FLAGS) $(NAME).c $(OBJS) $(LIBFT) $(MLX) $(FRAMEWORKS) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(MLX) $(FRAMEWORKS) -o $(NAME)
 
 clean: 
 	rm -rf $(OBJS)
