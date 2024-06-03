@@ -6,7 +6,7 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:31:15 by akar              #+#    #+#             */
-/*   Updated: 2024/06/01 20:32:23 by akar             ###   ########.fr       */
+/*   Updated: 2024/06/03 20:15:53 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int	main(int ac, char **av)
 	so_long->mapname = av[1];
 	so_long->mapy = countline(av[1]);
 	so_long->map = get_map(so_long);
-	ft_printf("%d",so_long->mapy);
 	mapsize_check(so_long, x, y);
 	flood_fill(so_long);
 	so_long->mlx = mlx_init();

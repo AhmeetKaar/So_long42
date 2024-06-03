@@ -6,11 +6,23 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 18:02:12 by akar              #+#    #+#             */
-/*   Updated: 2024/06/01 20:19:26 by akar             ###   ########.fr       */
+/*   Updated: 2024/06/03 15:43:35 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	finish_message(t_game *solong, char c)
+{
+	if (c == 'w')
+	{
+		free_map(solong, 1);
+		ft_printf("Congratulations, you won.");
+	}
+	free(solong);
+	mlx_destroy_window(solong->mlx, solong->mlx_win);
+	exit(1);
+}
 
 int	ft_key(int keycode, t_game *so_long)
 {

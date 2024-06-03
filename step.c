@@ -6,7 +6,7 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:57:38 by akar              #+#    #+#             */
-/*   Updated: 2024/05/31 21:13:06 by akar             ###   ########.fr       */
+/*   Updated: 2024/06/03 15:23:55 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_up(t_game *so_long)
 	if(next_step == 'C')
 		so_long->collected_count++;
 	else if(next_step == 'E' && so_long->collected_count == so_long->c_count)
-		errormessage2(so_long,'w');
+		finish_message(so_long,'w');
 	so_long->map[so_long->chry][so_long->chrx] = '0';
 	so_long->chry--;
 	so_long->map[so_long->chry][so_long->chrx] = 'P';
@@ -49,7 +49,7 @@ void	ft_left(t_game *so_long)
 	if (next_step == 'C')
 		so_long->collected_count++;
 	else if (next_step == 'E' && so_long->c_count == so_long->collected_count)
-		errormessage2(so_long, 'w');
+		finish_message(so_long, 'w');
 
 	so_long->map[so_long->chry][so_long->chrx] = '0';
 	so_long->chrx--;
@@ -76,7 +76,7 @@ void		ft_right(t_game *so_long)
 	if(next_step == 'C')
 		so_long->collected_count++;
 	else if( next_step == 'E' && so_long->c_count == so_long->collected_count)
-		errormessage2(so_long,'w');
+		finish_message(so_long,'w');
 	so_long->map[so_long->chry][so_long->chrx] = '0';
 	so_long->chrx++;
 	so_long->map[so_long->chry][so_long->chrx] = 'P';
@@ -100,7 +100,7 @@ void	ft_down(t_game *so_long)
 	if(next_step == 'C')
 		so_long->collected_count++;
 	else if(next_step == 'E' && so_long->collected_count == so_long->c_count)
-		errormessage2(so_long,'w');
+		finish_message(so_long,'w');
 	so_long->map[so_long->chry][so_long->chrx] = '0';
 	so_long->chry++;
 	so_long->map[so_long->chry][so_long->chrx] = 'P';
@@ -108,7 +108,6 @@ void	ft_down(t_game *so_long)
 	if(so_long->map[so_long->exity][so_long->exitx] != 'E')
 		so_long->map[so_long->exity][so_long->exitx] = 'E';
 }
-
 
 void	ft_close(t_game *so_long)
 {

@@ -52,17 +52,16 @@ void		flf_check(t_game *so_long);
 void		free_map(t_game *so_long, int n);
 int			strlen_newline(char *str);
 void		reset_value(t_game *so_long);
+int 		ft_strchr_gnl(char *str,int c);
 void		upload_image(t_game *so_long);
 void		put_image(t_game *so_long, int x, int y);
 int			ft_key(int keycode, t_game *so_long);
 void		ft_close(t_game *so_long);
-void		put_image(t_game *so_long, int x, int y);
 void		upload_image(t_game *so_long);
 void		ft_up(t_game *so_long);
 void		ft_left(t_game *so_long);
 void		ft_right(t_game *so_long);
 void		ft_down(t_game *so_long);
-void		errormessage2(t_game *solong, char c);
-void		errormessage(t_game *solong, char c);
+void		finish_message(t_game *solong, char c);
 
 #endif

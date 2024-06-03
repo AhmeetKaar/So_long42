@@ -12,6 +12,20 @@
 
 #include "so_long.h"
 
+int ft_strchr_gnl(char *str,int c)
+{
+    int i;
+
+    i = 0;
+    while (str[i])
+    {
+        if(str[i] == c)
+            return(1);
+        i++;
+    }
+    return(0);
+}
+
 void flf_check(t_game *so_long)
 {
     int i;
@@ -23,8 +37,8 @@ void flf_check(t_game *so_long)
         j = 0;
         while (so_long->mapcopy[i][j])
         {
-            if (ft_strchr("PEC",so_long->mapcopy[i][j]))
-            {
+            if (ft_strchr_gnl("PEC",so_long->mapcopy[i][j]))
+            { 
                 ft_printf("Error: For flood fill");
                 free_map(so_long,2);
                 exit(1);
@@ -43,7 +57,7 @@ void f_fill(char **tab,t_location mapsize,int y,int x)
         return;
     if (tab[y][x] == 'Z' || tab[y][x] == '1')
         return;
-
+        
     tab[y][x] = 'Z'; 
     f_fill(tab, mapsize, y - 1, x); 
     f_fill(tab, mapsize, y + 1, x); 
@@ -54,14 +68,14 @@ void f_fill(char **tab,t_location mapsize,int y,int x)
 void flood_fill(t_game *so_long)
 {
     t_location  chatr;
-    t_location  map;
+    t_location  mapsize;
 
     so_long->mapcopy = get_map(so_long);
     chatr.x = so_long->chrx;
     chatr.y = so_long->chry;
-    map.x = so_long->mapx;
-    map.y = so_long->mapy;
-    f_fill(so_long->mapcopy, map, chatr.y,chatr.x);
+    mapsize.x = so_long->mapx;
+    mapsize.y = so_long->mapy;
+    f_fill(so_long->mapcopy, mapsize, chatr.y,chatr.x);
     flf_check(so_long);
 	free_map(so_long, 2);
 }
