@@ -6,23 +6,13 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 18:02:12 by akar              #+#    #+#             */
-/*   Updated: 2024/06/03 15:43:35 by akar             ###   ########.fr       */
+/*   Updated: 2024/06/04 14:24:31 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	finish_message(t_game *solong, char c)
-{
-	if (c == 'w')
-	{
-		free_map(solong, 1);
-		ft_printf("Congratulations, you won.");
-	}
-	free(solong);
-	mlx_destroy_window(solong->mlx, solong->mlx_win);
-	exit(1);
-}
+static void	put_imag(t_game *so_long, int x, int y);
 
 int	ft_key(int keycode, t_game *so_long)
 {
@@ -66,27 +56,6 @@ void	upload_image(t_game *so_long)
 	}
 }
 
-void	put_imag(t_game *so_long, int x, int y)
-{
-	mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,
-		so_long->freespace, x * 64, y * 64);
-	if (so_long->map[y][x] == '1')
-		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->wall, x
-			* 64, y * 64);
-	else if (so_long->map[y][x] == 'E')
-		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->exit, x
-			* 64, y * 64);
-	else if (so_long->map[y][x] == 'C')
-		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,
-			so_long->collectable, x * 64, y * 64);
-	else if (so_long->map[y][x] == 'P')
-		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->player,
-			x * 64, y * 64);
-	if(so_long->map[y][x] == 'E' && so_long->chrx == so_long->exitx && so_long->exity == so_long->chry)
-		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->player,
-			x * 64, y * 64);
-}
-
 void	put_image(t_game *so_long, int x, int y)
 {
 	y = 0;
@@ -100,4 +69,38 @@ void	put_image(t_game *so_long, int x, int y)
 		}
 		y++;
 	}
+}
+
+static void	put_imag(t_game *so_long, int x, int y)
+{
+	mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->freespace,
+		x * 64, y * 64);
+	if (so_long->map[y][x] == '1')
+		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->wall, x
+			* 64, y * 64);
+	else if (so_long->map[y][x] == 'E')
+		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->exit, x
+			* 64, y * 64);
+	else if (so_long->map[y][x] == 'C')
+		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win,
+			so_long->collectable, x * 64, y * 64);
+	else if (so_long->map[y][x] == 'P')
+		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->player,
+			x * 64, y * 64);
+	if (so_long->map[y][x] == 'E' && so_long->chrx == so_long->exitx
+		&& so_long->exity == so_long->chry)
+		mlx_put_image_to_window(so_long->mlx, so_long->mlx_win, so_long->player,
+			x * 64, y * 64);
+}
+
+void	finish_message(t_game *solong, char c)
+{
+	if (c == 'w')
+	{
+		free_map(solong, 1);
+		ft_printf("Congratulations, you won.");
+	}
+	free(solong);
+	mlx_destroy_window(solong->mlx, solong->mlx_win);
+	exit(1);
 }

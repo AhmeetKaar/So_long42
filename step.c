@@ -6,7 +6,7 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:57:38 by akar              #+#    #+#             */
-/*   Updated: 2024/06/03 15:23:55 by akar             ###   ########.fr       */
+/*   Updated: 2024/06/04 12:16:55 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,98 +14,81 @@
 
 void	ft_up(t_game *so_long)
 {
-	char next_step;
+	char	next_step;
 
 	next_step = so_long->map[so_long->chry - 1][so_long->chrx];
 	if (next_step == '1')
-		return;
+		return ;
 	so_long->move_count++;
-	ft_printf("Step count: %d\n",so_long->move_count);
-
-	if(next_step == 'C')
+	ft_printf("Step count: %d\n", so_long->move_count);
+	if (next_step == 'C')
 		so_long->collected_count++;
-	else if(next_step == 'E' && so_long->collected_count == so_long->c_count)
-		finish_message(so_long,'w');
+	else if (next_step == 'E' && so_long->collected_count == so_long->c_count)
+		finish_message(so_long, 'w');
 	so_long->map[so_long->chry][so_long->chrx] = '0';
 	so_long->chry--;
 	so_long->map[so_long->chry][so_long->chrx] = 'P';
-
-
-	if(so_long->map[so_long->exity][so_long->exitx] != 'E')
+	if (so_long->map[so_long->exity][so_long->exitx] != 'E')
 		so_long->map[so_long->exity][so_long->exitx] = 'E';
-	
 }
+
 void	ft_left(t_game *so_long)
 {
 	char	next_step;
 
 	next_step = so_long->map[so_long->chry][so_long->chrx - 1];
 	if (next_step == '1')
-		return;
-
+		return ;
 	so_long->move_count++;
 	ft_printf("Step count: %d\n", so_long->move_count);
-
 	if (next_step == 'C')
 		so_long->collected_count++;
 	else if (next_step == 'E' && so_long->c_count == so_long->collected_count)
 		finish_message(so_long, 'w');
-
 	so_long->map[so_long->chry][so_long->chrx] = '0';
 	so_long->chrx--;
 	so_long->map[so_long->chry][so_long->chrx] = 'P';
-
-
-	if(so_long->map[so_long->exity][so_long->exitx] != 'E')
+	if (so_long->map[so_long->exity][so_long->exitx] != 'E')
 		so_long->map[so_long->exity][so_long->exitx] = 'E';
-
-
 }
 
-void		ft_right(t_game *so_long)
+void	ft_right(t_game *so_long)
 {
-	char next_step;
+	char	next_step;
 
 	next_step = so_long->map[so_long->chry][so_long->chrx + 1];
-	if(next_step == '1')
-		return;
-		
+	if (next_step == '1')
+		return ;
 	so_long->move_count++;
 	ft_printf("Step count: %d\n", so_long->move_count);
-
-	if(next_step == 'C')
+	if (next_step == 'C')
 		so_long->collected_count++;
-	else if( next_step == 'E' && so_long->c_count == so_long->collected_count)
-		finish_message(so_long,'w');
+	else if (next_step == 'E' && so_long->c_count == so_long->collected_count)
+		finish_message(so_long, 'w');
 	so_long->map[so_long->chry][so_long->chrx] = '0';
 	so_long->chrx++;
 	so_long->map[so_long->chry][so_long->chrx] = 'P';
-
-
-	if(so_long->map[so_long->exity][so_long->exitx] != 'E')
+	if (so_long->map[so_long->exity][so_long->exitx] != 'E')
 		so_long->map[so_long->exity][so_long->exitx] = 'E';
 }
 
 void	ft_down(t_game *so_long)
 {
-	char next_step;
+	char	next_step;
 
 	next_step = so_long->map[so_long->chry + 1][so_long->chrx];
-	if(next_step == '1')
-		return;
-
+	if (next_step == '1')
+		return ;
 	so_long->move_count++;
-	ft_printf("Step count: %d\n",so_long->move_count);
-	
-	if(next_step == 'C')
+	ft_printf("Step count: %d\n", so_long->move_count);
+	if (next_step == 'C')
 		so_long->collected_count++;
-	else if(next_step == 'E' && so_long->collected_count == so_long->c_count)
-		finish_message(so_long,'w');
+	else if (next_step == 'E' && so_long->collected_count == so_long->c_count)
+		finish_message(so_long, 'w');
 	so_long->map[so_long->chry][so_long->chrx] = '0';
 	so_long->chry++;
 	so_long->map[so_long->chry][so_long->chrx] = 'P';
-	
-	if(so_long->map[so_long->exity][so_long->exitx] != 'E')
+	if (so_long->map[so_long->exity][so_long->exitx] != 'E')
 		so_long->map[so_long->exity][so_long->exitx] = 'E';
 }
 

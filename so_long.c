@@ -6,35 +6,47 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:54:58 by akar              #+#    #+#             */
-/*   Updated: 2024/06/03 20:48:06 by akar             ###   ########.fr       */
+/*   Updated: 2024/06/04 14:21:11 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int countline(char *ber)
+int	strlen_newline(char *str)
 {
-    char *str;
-    int i;
-    int fd;
+	int	i;
 
-    fd = open(ber, O_RDONLY);
-    if (fd < 0)
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i] != '\n' && str[i] != '\0')
+		i++;
+	return (i);
+}
+
+int	countline(char *ber)
+{
+	char	*str;
+	int		i;
+	int		fd;
+
+	fd = open(ber, O_RDONLY);
+	if (fd < 0)
 	{
 		ft_printf("Error: File not opened.");
 		exit(1);
 	}
-    i = 0;
-    while (1)
-    {
-        str = get_next_line_gnl(fd);
-        if (str == NULL)
-			break;
+	i = 0;
+	while (1)
+	{
+		str = get_next_line_gnl(fd);
+		if (str == NULL)
+			break ;
 		free(str);
-        i++;
-    }
-    close(fd); 
-    return (i);
+		i++;
+	}
+	close(fd);
+	return (i);
 }
 
 char	**get_map(t_game *so_long)
@@ -68,7 +80,7 @@ void	free_map(t_game *so_long, int n)
 {
 	int	i;
 
-	i = 0;	
+	i = 0;
 	if (n == 1)
 	{
 		while (i < so_long->mapy)
