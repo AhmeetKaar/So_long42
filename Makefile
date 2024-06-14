@@ -18,11 +18,13 @@ $(NAME): $(OBJS) $(LIBFTDIR)
 
 clean: 
 	rm -rf $(OBJS)
+	make clean -C $(MLXDIR)
 	make clean -C $(LIBFTDIR)
 
 fclean: clean
 	rm -rf $(NAME)
 	make fclean -C $(LIBFTDIR)
+	make fclean -C $(MLXDIR)
 
 re: fclean all
 

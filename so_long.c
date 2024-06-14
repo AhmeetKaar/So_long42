@@ -6,7 +6,7 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:54:58 by akar              #+#    #+#             */
-/*   Updated: 2024/06/04 14:21:11 by akar             ###   ########.fr       */
+/*   Updated: 2024/06/07 15:03:27 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,7 @@ char	**get_map(t_game *so_long)
 
 	fd = open(so_long->mapname, O_RDONLY);
 	str = malloc(sizeof(char *) * so_long->mapy + 1);
-	close(fd);
-	fd = open(so_long->mapname, O_RDONLY);
-	if (fd == -1)
+	if (fd < 0)
 	{
 		ft_printf("Error: File not open.");
 		free(str);
@@ -73,6 +71,7 @@ char	**get_map(t_game *so_long)
 	}
 	str[i] = NULL;
 	so_long->mapx = strlen_newline(str[0]);
+	close(fd);
 	return (str);
 }
 

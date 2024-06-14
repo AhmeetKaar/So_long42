@@ -6,7 +6,7 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:57:38 by akar              #+#    #+#             */
-/*   Updated: 2024/06/04 12:16:55 by akar             ###   ########.fr       */
+/*   Updated: 2024/06/07 15:28:05 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	ft_down(t_game *so_long)
 		so_long->map[so_long->exity][so_long->exitx] = 'E';
 }
 
-void	ft_close(t_game *so_long)
+int	ft_close(t_game *so_long)
 {
 	ft_printf("Game closed.");
 	free_map(so_long, 1);

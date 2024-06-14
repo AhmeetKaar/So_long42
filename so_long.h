@@ -6,7 +6,7 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 12:16:39 by akar              #+#    #+#             */
-/*   Updated: 2024/06/04 14:20:55 by akar             ###   ########.fr       */
+/*   Updated: 2024/06/07 15:31:37 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef struct s_location
 {
 	int		x;
 	int		y;
-
 }			t_location;
 
 int			countline(char *ber);
@@ -59,12 +58,11 @@ void		free_map(t_game *so_long, int n);
 void		upload_image(t_game *so_long);
 void		put_image(t_game *so_long, int x, int y);
 int			ft_key(int keycode, t_game *so_long);
-void		ft_close(t_game *so_long);
 void		ft_up(t_game *so_long);
 void		ft_left(t_game *so_long);
 void		ft_right(t_game *so_long);
 void		ft_down(t_game *so_long);
-void		ft_close(t_game *so_long);
+int			ft_close(t_game *so_long);
 int			strlen_newline(char *str);
 void		finish_message(t_game *solong, char c);
 

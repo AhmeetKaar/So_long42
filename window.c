@@ -6,7 +6,7 @@
 /*   By: akar <akar@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 18:02:12 by akar              #+#    #+#             */
-/*   Updated: 2024/06/04 14:24:31 by akar             ###   ########.fr       */
+/*   Updated: 2024/06/07 15:34:35 by akar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	ft_key(int keycode, t_game *so_long)
 		ft_close(so_long);
 	y = 0;
 	put_image(so_long, x, y);
+	return (0);
 }
 
 void	upload_image(t_game *so_long)
@@ -48,8 +49,8 @@ void	upload_image(t_game *so_long)
 			"textures/collectable.xpm", &x, &y);
 	so_long->exit = mlx_xpm_file_to_image(so_long->mlx, "textures/exit.xpm", &x,
 			&y);
-	if (!so_long->wall && !so_long->freespace && !so_long->player
-		&& !so_long->collectable && !so_long->exit)
+	if (!so_long->wall || !so_long->freespace || !so_long->player
+		|| !so_long->collectable || !so_long->exit)
 	{
 		ft_printf("Error: Missing image.");
 		exit(1);
