@@ -20,7 +20,7 @@ Amaç, harita dosyasına göre dinamik olarak bir oyun ortamı oluşturmak ve oy
 
 ```bash
 make
-
+```
 2. Oyunu Başlatma
 Aşağıdaki komutu kullanarak oyunu başlatabilirsiniz:
 
