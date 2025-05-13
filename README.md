@@ -24,11 +24,10 @@ make
 2. Oyunu Başlatma
 Aşağıdaki komutu kullanarak oyunu başlatabilirsiniz:
 
-bash
-Kopyala
-Düzenle
+```bash
 ./so_long ./maps/map.ber
 ./so_long: Derlenen oyunu çalıştırır.
+```
 
 ./maps/map.ber: maps klasörü altında bulunan .ber uzantılı harita dosyasını oyuna yükler.
 
