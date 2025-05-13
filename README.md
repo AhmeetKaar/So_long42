@@ -1,9 +1,22 @@
-Nasıl Çalıştırılır ?
+# so_long
 
-Öncelikle make komutu ile makefile dosyamızdaki objeleri derliyoruz. 
+Bu proje, basit bir 2D oyun motoru kullanılarak oluşturulmuş bir labirent oyunudur. `so_long`, 42 okulu eğitim programı kapsamında geliştirilmiştir ve grafik arayüzü için MinilibX kütüphanesinden yararlanılmıştır.
 
-Sonrasında ise ./so_long ./maps/map.ber komutu ile programımızı çalıştırıyoruz. 
+## 🔍 Proje Hakkında
 
-./so_long -> so_long dizinini çalıştır. 
+Amaç, harita dosyasına göre dinamik olarak bir oyun ortamı oluşturmak ve oyuncunun çıkış noktasına ulaşmasını sağlamaktır. Oyuncu haritada karakterini yön tuşlarıyla hareket ettirir, tüm coin'leri toplar ve çıkış kapısına ulaşır.
 
-./maps/map.ber -> komutu ile maps dosyasının altında bulunan .ber uzantılı map'i çalıştır anlamına gelmektedir.
+## 📁 Dosya Yapısı
+
+- `so_long/` - Proje kaynak dosyaları
+- `maps/` - `.ber` uzantılı harita dosyaları
+- `Makefile` - Derleme işlemlerini otomatikleştiren dosya
+
+## 🛠️ Kurulum ve Çalıştırma
+
+### 1. Derleme
+
+Öncelikle proje dosyasının bulunduğu dizinde terminal açın ve aşağıdaki komutu çalıştırarak projeyi derleyin:
+
+```bash
+make
